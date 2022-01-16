@@ -21,9 +21,6 @@ public class MultipartCSVUtils implements MultipartFileUploadUtils, MultipartFil
 
         String[] headings = fileContent[0].split(";");
         String[] rows = fileContent[1].replaceAll("\r\n", ";").split(";");
-//        System.out.println(headings.length);
-//        System.out.println(rows.length);
-//        System.out.println(rows.length / headings.length);
 
         for (int i = 0; i < headings.length; i++) {
             String[] rowAdapterList = new String[rows.length / headings.length];

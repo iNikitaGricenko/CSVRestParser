@@ -7,7 +7,6 @@ import com.wolfhack.csvrest.data.Repository.CSVRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -54,7 +53,7 @@ public class MainController {
         modelAndView.setViewName("home.html");
         Pageable pageable = PageRequest.of(page, size);
         modelAndView.addObject("ELEMENTS", csvRepository.findAll(pageable));
-        modelAndView.addObject("cP", pageable.getPageNumber());
+        modelAndView.addObject("currentPage", pageable.getPageNumber());
 
         return modelAndView;
     }

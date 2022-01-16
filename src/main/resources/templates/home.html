@@ -32,8 +32,8 @@
     </style>
 </head>
 <body>
-    <a th:if="${cP} != 0" th:href="'/csv?page=' + ${cP-1}">Previous</a>
-    <a th:href="'/csv?page=' + ${cP+1}">Next</a>
+    <a th:if="${currentPage} != 0" th:href="'/csv?page=' + ${currentPage-1}">Previous</a>
+    <a th:href="'/csv?page=' + ${currentPage+1}">Next</a>
 <table>
     <thead>
     <tr>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CSV data to WEB</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table thead td {
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+        table tr {
+            color: #222;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        table tr:last-child {
+            border-bottom: none;
+        }
+        table tbody tr:hover,
+        table tbody tr:focus-within {
+            background: #03a9f4;
+            color: #fff;
+        }
+        table tr td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <a th:if="${cP} != 0" th:href="'/csv?page=' + ${cP-1}">Previous</a>
+    <a th:href="'/csv?page=' + ${cP+1}">Next</a>
+<table>
+    <thead>
+    <tr>
+        <td>State</td>
+        <td>Name</td>
+        <td>Institution Type</td>
+        <td>Phone Number</td>
+        <td>Website</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="element : ${ELEMENTS}">
+        <td th:text="${element.state}"></td>
+        <td th:text="${element.name}"></td>
+        <td th:text="${element.institutionType}"></td>
+        <td th:text="${element.phone}"></td>
+        <td><a th:href="${element.website}" th:text="${element.website}"></a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
